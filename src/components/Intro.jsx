@@ -11,16 +11,17 @@ import Zellije1 from "../assets/zellije-tl.svg";
 import Zellije2 from "../assets/zellije-bl.svg";
 import Zellije3 from "../assets/zellije-br.svg";
 import Cities from "./moroccanCities";
-
+import { ScrollTrigger } from "gsap/all";
 
 const Intro = () => {
-  gsap.registerPlugin(CSSPlugin);
+  gsap.registerPlugin(CSSPlugin, ScrollTrigger);
   const tl = gsap.timeline();
   const paragraphRef = useRef(null);
   const [paragraphVisible, setParagraphVisible] = useState(false);
   const audioRef = useRef(new Audio(voiceAudio));
   const [content, setContent] = useState(false);
   const [cities, setCities] = useState(false);
+  const [city, setCity] = useState(null);
 
   useEffect(() => {
     audioRef.current.load();
@@ -59,7 +60,7 @@ const Intro = () => {
       ease: "power3.inOut",
       pointerEvents: "none",
     });
-    const timeoutId = setTimeout(paragraphAnimation, 2000);
+    const timeoutId = setTimeout(paragraphAnimation, 1000);
     return () => clearTimeout(timeoutId);
   };
 
@@ -83,6 +84,8 @@ const Intro = () => {
       x: 200,
       skewY: 8,
       opacity: 0,
+      onComplete: () => setContent(false),
+
     });
 
     tl.to("#zellije_bg", {
@@ -93,7 +96,7 @@ const Intro = () => {
       y: 80,
       scale: 1,
       ease: "elastic.inOut",
-      duration:2,
+      duration: 2,
     });
 
     tl.to("#logo", {
@@ -102,26 +105,31 @@ const Intro = () => {
       ease: "power1.inOut",
     });
 
-    tl.to("#logo",{
-        css: {display: "none"},
+    tl.to("#logo", {
+      css: { display: "none" },
+    });
 
-    })
-
-    setContent(false);
-    animateCities()
+    animateCities();
   };
 
   const animateCities = () => {
     setCities(true);
-    tl.fromTo("#city",{
+    tl.fromTo(
+      "#city",
+      {
         opacity: 0,
-    },{
+      },
+      {
         opacity: 1,
         duration: 1,
         ease: "power1.inOut",
-        stagger:0.5,
-    })
-  }
+        stagger: 0.5,
+      }
+    );
+    tl.to("#citiesBg", {
+      backgroundColor: "#3B3B3B",
+    });
+  };
 
   const paragraphAnimation = () => {
     tl.fromTo(
@@ -141,7 +149,7 @@ const Intro = () => {
     );
     setParagraphVisible(true);
     playAudio();
-    const timeout = setTimeout(animateParagraph, 1200);
+    const timeout = setTimeout(animateParagraph, 800);
     return () => clearTimeout(timeout);
   };
 
@@ -182,8 +190,8 @@ const Intro = () => {
       });
       tl.to("#zellije", {
         opacity: 1,
-        duration: 1,
-        ease: "power2.inOut",
+        duration: 0.5,
+        ease: "power3.inOut",
       });
       tl.fromTo(
         "#heroPara",
@@ -224,7 +232,7 @@ const Intro = () => {
     const words = paragraph.innerText.split(" ");
 
     paragraph.innerText = "";
-    const animationDuration = 18;
+    const animationDuration = 16;
     const totalWords = words.length;
     const baseWordDuration = animationDuration / totalWords;
     words.forEach((word, index) => {
@@ -242,25 +250,70 @@ const Intro = () => {
     });
   };
 
-  window.addEventListener("mousemove", (event) => {
-    let xPos = event.clientX / window.innerWidth - 0.5;
-    let yPos = event.clientY / window.innerHeight - 0.5;
-    gsap.to("#map", {
-      duration: 0.5,
-      rotationX: yPos * 10,
-      rotationy: xPos * 10,
+  const cityDetails = (item) => {
+    tl.to("#city", {
+      opacity: 0,
+      stagger: 0.3,
+      duration: 1,
+      ease: "power3.inOut",
     });
-  });
+    tl.to("#citiesBg", {
+      opacity: 0,
+      duration: 1,
+      ease: "power1.inOut",
+      onComplete: animateCity(item),
+    });
+  };
 
-  const test = (item) => {
+  const animateCity = (item) => {
     console.log(item);
-  }
+
+    setTimeout(() => setCity(item), 7000);
+    setTimeout(() => setCities(false), 7000);
+    console.log(city);
+  };
+
+  const CityDetails = ({ item }) => {
+    const cityDetRef = useRef(null);
+   
+
+    useEffect(() => {
+      tl.to("#cityDet", {
+        opacity: 1,
+        duration: 2,
+        ease: "power3.inOut",
+      }).to("#bg", {
+        width: "100vw",
+        duration: 2,
+        overflow: "visible",
+      }).to("#window",{
+        overflow: "visible",
+      })
+
+    }, [item]);
+
+  
+
+    return (
+      <div className="w-[1500vw] h-full absolute top-0 left-0  overflow-x-auto" id="cityDet">
+      {/* Content inside cityDet will scroll horizontally */}
+      <div className="flex w-full flex-no-wrap p-4">
+        {Cities.map((city) => (
+          <div key={city} className="w-[100vw] h-64 mr-4 bg-gray-300">
+            {city}
+          </div>
+        ))}
+      </div>
+    </div>
+    );
+  };
 
   return (
-    <div className="w-full h-full bg-black">
+    <div className="w-full h-full bg-black overflow-hidden"
+    id="window">
       <div
         id="bg"
-        className="h-[100vh] overflow-hidden w-[100vw] relative bg-[#181818] flex flex-col justify-center items-center"
+        className="h-[100vh] overflow-sroll w-[100vw] relative bg-[#181818] flex flex-col justify-center items-center"
       >
         <div
           id="vignette"
@@ -379,20 +432,34 @@ const Intro = () => {
             cities ? "" : "hidden"
           } `}
         >
-          <div className="w-full h-full grid grid-cols-3 grid-row-5 md:grid-cols-5 md:grid-rows-3 " style={{gridAutoRows: "1fr"}}>
-          {Cities.map((item)=>(
-            <div id="city" className="object-cover group flex  relative  justify-center items-center text-lg md:text-3xl cursor-pointer tracking-widest  transition-colors duration-300 text-white" key={item}>
-            <img src={`src/assets/${item.toLowerCase()}.jpg`} alt={item} className=" h-full w-full object-cover "/>
-            <div  className=" h-full w-full absolute top-0 left-0 bg-black opacity-85 group-hover:opacity-0 duration-300 transition-opacity">
-            </div>
-            <div className="absolute group-hover:opacity-0 transition-opacity duration-1500">
-            {item}
-            </div>
-            </div>))
-        }
-        
+          <div
+            className="w-full h-full grid grid-cols-3 grid-row-5 md:grid-cols-5 md:grid-rows-3"
+            style={{ gridAutoCols: "1fr" }}
+            id="citiesBg"
+          >
+            {Cities.map((item) => (
+              <div
+                id="city"
+                className={`object-cover group flex relative  justify-center items-center text-lg md:text-3xl cursor-pointer tracking-widest  transition-colors duration-300 text-white ${item}`}
+                key={item}
+                onClick={() => {
+                  cityDetails(item);
+                }}
+              >
+                <img
+                  src={`src/assets/${item.toLowerCase()}.jpg`}
+                  alt={item}
+                  className=" h-full w-full object-cover "
+                />
+                <div className=" h-full w-full absolute top-0 left-0 bg-black opacity-85 group-hover:opacity-0 duration-300 transition-opacity"></div>
+                <div className="absolute group-hover:opacity-0 transition-opacity duration-1500">
+                  {item}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+        {city && <CityDetails item={city} />}
       </div>
     </div>
   );
