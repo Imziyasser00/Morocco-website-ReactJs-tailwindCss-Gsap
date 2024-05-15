@@ -12,6 +12,7 @@ import Zellije2 from "../assets/zellije-bl.svg";
 import Zellije3 from "../assets/zellije-br.svg";
 import Cities from "./moroccanCities";
 import { ScrollTrigger } from "gsap/all";
+import CityDetails from "./CityDetails";
 
 const Intro = () => {
   gsap.registerPlugin(CSSPlugin, ScrollTrigger);
@@ -270,43 +271,9 @@ const Intro = () => {
 
     setTimeout(() => setCity(item), 7000);
     setTimeout(() => setCities(false), 7000);
-    console.log(city);
   };
 
-  const CityDetails = ({ item }) => {
-    const cityDetRef = useRef(null);
-   
 
-    useEffect(() => {
-      tl.to("#cityDet", {
-        opacity: 1,
-        duration: 2,
-        ease: "power3.inOut",
-      }).to("#bg", {
-        width: "100vw",
-        duration: 2,
-        overflow: "visible",
-      }).to("#window",{
-        overflow: "visible",
-      })
-
-    }, [item]);
-
-  
-
-    return (
-      <div className="w-[1500vw] h-full absolute top-0 left-0  overflow-x-auto" id="cityDet">
-      {/* Content inside cityDet will scroll horizontally */}
-      <div className="flex w-full flex-no-wrap p-4">
-        {Cities.map((city) => (
-          <div key={city} className="w-[100vw] h-64 mr-4 bg-gray-300">
-            {city}
-          </div>
-        ))}
-      </div>
-    </div>
-    );
-  };
 
   return (
     <div className="w-full h-full bg-black overflow-hidden"
@@ -459,7 +426,7 @@ const Intro = () => {
             ))}
           </div>
         </div>
-        {city && <CityDetails item={city} />}
+        {city && <CityDetails  city={city} tl={tl} />}
       </div>
     </div>
   );
