@@ -9,6 +9,7 @@ export default {
       colors:{
         Mred : "#EB1C26",
         Mgreen: "#2EA347",
+        
       }
     },
   },

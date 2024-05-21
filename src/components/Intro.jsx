@@ -7,22 +7,20 @@ import voiceAudio from "../assets/voiceover.mp3";
 import { CSSPlugin } from "gsap/CSSPlugin"; // Import CSSPlugin
 import bg from "../assets/bg.png";
 import Zellije from "../assets/zellije.svg";
+import { useNavigate } from 'react-router-dom';
 import Zellije1 from "../assets/zellije-tl.svg";
 import Zellije2 from "../assets/zellije-bl.svg";
 import Zellije3 from "../assets/zellije-br.svg";
-import Cities from "./moroccanCities";
 import { ScrollTrigger } from "gsap/all";
-import CityDetails from "./CityDetails";
 
 const Intro = () => {
   gsap.registerPlugin(CSSPlugin, ScrollTrigger);
+  const navigateTo = useNavigate();
   const tl = gsap.timeline();
   const paragraphRef = useRef(null);
   const [paragraphVisible, setParagraphVisible] = useState(false);
   const audioRef = useRef(new Audio(voiceAudio));
   const [content, setContent] = useState(false);
-  const [cities, setCities] = useState(false);
-  const [city, setCity] = useState(null);
 
   useEffect(() => {
     audioRef.current.load();
@@ -107,30 +105,14 @@ const Intro = () => {
     });
 
     tl.to("#logo", {
-      css: { display: "none" },
+      css: { display: "none",
+        onComplete : ()=> navigateTo('/cities')
+       },
     });
+    
 
-    animateCities();
   };
 
-  const animateCities = () => {
-    setCities(true);
-    tl.fromTo(
-      "#city",
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 1,
-        ease: "power1.inOut",
-        stagger: 0.5,
-      }
-    );
-    tl.to("#citiesBg", {
-      backgroundColor: "#3B3B3B",
-    });
-  };
 
   const paragraphAnimation = () => {
     tl.fromTo(
@@ -251,27 +233,7 @@ const Intro = () => {
     });
   };
 
-  const cityDetails = (item) => {
-    tl.to("#city", {
-      opacity: 0,
-      stagger: 0.3,
-      duration: 1,
-      ease: "power3.inOut",
-    });
-    tl.to("#citiesBg", {
-      opacity: 0,
-      duration: 1,
-      ease: "power1.inOut",
-      onComplete: animateCity(item),
-    });
-  };
 
-  const animateCity = (item) => {
-    console.log(item);
-
-    setTimeout(() => setCity(item), 7000);
-    setTimeout(() => setCities(false), 7000);
-  };
 
 
 
@@ -284,7 +246,7 @@ const Intro = () => {
       >
         <div
           id="vignette"
-          className="fixed top-0 left-0 w-full h-full shadow-[0px_0px_300px_rgba(0,0,0,0.8)_inset]"
+          className="fixed top-0 left-0 w-[100vw] h-full shadow-[0px_0px_300px_rgba(0,0,0,0.8)_inset]"
         ></div>
         <div className="relative z-10 w-1/2 flex justify-center items-center">
           <img
@@ -394,39 +356,7 @@ const Intro = () => {
             </div>
           </div>
         </div>
-        <div
-          className={`w-full absolute h-full top-0 left-0  ${
-            cities ? "" : "hidden"
-          } `}
-        >
-          <div
-            className="w-full h-full grid grid-cols-3 grid-row-5 md:grid-cols-5 md:grid-rows-3"
-            style={{ gridAutoCols: "1fr" }}
-            id="citiesBg"
-          >
-            {Cities.map((item) => (
-              <div
-                id="city"
-                className={`object-cover group flex relative  justify-center items-center text-lg md:text-3xl cursor-pointer tracking-widest  transition-colors duration-300 text-white ${item}`}
-                key={item}
-                onClick={() => {
-                  cityDetails(item);
-                }}
-              >
-                <img
-                  src={`src/assets/${item.toLowerCase()}.jpg`}
-                  alt={item}
-                  className=" h-full w-full object-cover "
-                />
-                <div className=" h-full w-full absolute top-0 left-0 bg-black opacity-85 group-hover:opacity-0 duration-300 transition-opacity"></div>
-                <div className="absolute group-hover:opacity-0 transition-opacity duration-1500">
-                  {item}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        {city && <CityDetails  city={city} tl={tl} />}
+       
       </div>
     </div>
   );
