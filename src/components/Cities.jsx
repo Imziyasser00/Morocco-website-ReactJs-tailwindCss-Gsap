@@ -3,53 +3,52 @@ import citiesList from "../data/moroccanCities";
 import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
 
-
 const Cities = () => {
-    const navigateTo = useNavigate();
-    useEffect(()=>{
-        animateCities()
-    },[])
-    
-    const animateCities = () => {
-        const tl = gsap.timeline();
-        tl.fromTo(
-          "#city",
-          {
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-            duration: 1,
-            ease: "power1.inOut",
-            stagger: 0.2,
-          }
-        );
-        tl.to("#citiesBg", {
-          backgroundColor: "#3B3B3B",
-        });
-      }
-      const cityDetails = (item) => {
-        const tl = gsap.timeline();
-        tl.fromTo(
-          "#city",
-          {
-            opacity: 1,
-          },
-          {
-            opacity: 0,
-            duration: 1,
-            ease: "power1.inOut",
-            stagger: 0.2,
-          }
-        );
-        tl.to("#citiesBg", {
-          backgroundColor: "#ffff",
-          duration: 2,
-          onComplete: () => navigateTo(`/city/${item}`)
-        });
-      }
+  const navigateTo = useNavigate();
   
+  useEffect(() => {
+    animateCities();
+  }, []);
+  
+  const animateCities = () => {
+    const tl = gsap.timeline();
+    tl.fromTo(
+      ".city",
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        ease: "power1.inOut",
+        stagger: 0.2,
+      }
+    );
+    tl.to("#citiesBg", {
+      backgroundColor: "#3B3B3B",
+    });
+  };
 
+  const cityDetails = (item) => {
+    const tl = gsap.timeline();
+    tl.fromTo(
+      ".city",
+      {
+        opacity: 1,
+      },
+      {
+        opacity: 0,
+        duration: 1,
+        ease: "power1.inOut",
+        stagger: 0.2,
+      }
+    );
+    tl.to("#citiesBg", {
+      backgroundColor: "#ffff",
+      duration: 2,
+      onComplete: () => navigateTo(`/city/${item}`)
+    });
+  };
 
   return (
     <div className="w-[100vw] h-[100vh] overflow-hidden relative">
@@ -63,8 +62,7 @@ const Cities = () => {
         >
           {citiesList.map((item) => (
             <div
-              id="city"
-              className={`object-cover group flex relative  justify-center items-center text-lg md:text-3xl cursor-pointer tracking-widest  transition-colors duration-300 text-white ${item}`}
+              className={`object-cover group flex relative justify-center items-center text-lg md:text-3xl cursor-pointer tracking-widest transition-colors duration-300 text-white city`}
               key={item}
               onClick={() => {
                 cityDetails(item);
@@ -73,9 +71,9 @@ const Cities = () => {
               <img
                 src={`src/assets/${item.toLowerCase()}.jpg`}
                 alt={item}
-                className=" h-full w-full object-cover "
+                className="h-full w-full object-cover"
               />
-              <div className=" h-full w-full absolute top-0 left-0 bg-black opacity-85 group-hover:opacity-0 duration-300 transition-opacity"></div>
+              <div className="h-full w-full absolute top-0 left-0 bg-black opacity-85 group-hover:opacity-0 duration-300 transition-opacity"></div>
               <div className="absolute group-hover:opacity-0 transition-opacity duration-1500">
                 {item}
               </div>

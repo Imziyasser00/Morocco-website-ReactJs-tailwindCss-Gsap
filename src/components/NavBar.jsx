@@ -71,12 +71,7 @@ const NavBar = ({ setCurrentSection }) => {
         >
           <FaPlane />
         </li>
-        <li
-          className={`navLink px-4 cursor-pointer py-4 rounded-full ${activeSection === 'Weather' ? 'active' : 'text-Mred border border-4 border-Mred'}`}
-          onClick={() => handleSectionChange('Weather')}
-        >
-          <IoSunny />
-        </li>
+
         <li
           className={`navLink px-4 cursor-pointer py-4 rounded-full border border-4 border-Mred ${activeSection === 'Map' ? 'active' : 'text-Mred '}`}
           onClick={() => handleSectionChange('Map')}

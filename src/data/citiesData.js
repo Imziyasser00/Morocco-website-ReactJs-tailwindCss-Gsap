@@ -28,7 +28,7 @@ const citiesData = [
       current: "Sunny, 22°C",
       climate: "Mediterranean climate with warm summers and mild winters."
     },
-    images: ["casablanca1.png", "casablanca2.png", "casablanca3.png"],
+    images: ["casablanca1.png", "casablanca2.png", "casablanca3.png", "casablanca4.png", "casablanca5.png", "casablanca6.png", "casablanca7.png", "casablanca8.png", "casablanca9.png"],
     mapCoordinates: [33.5731, -7.5898]
   },
   {
@@ -60,7 +60,7 @@ const citiesData = [
       current: "Partly Cloudy, 20°C",
       climate: "Mediterranean climate with hot, dry summers and mild, wet winters."
     },
-    images: ["rabat1.png", "rabat2.png", "rabat3.png"],
+    images: ["rabat1.png", "rabat2.png", "rabat3.png", "rabat4.png", "rabat5.png"],
     mapCoordinates: [34.0209, -6.8416]
   },
   {
@@ -92,7 +92,7 @@ const citiesData = [
       current: "Sunny, 25°C",
       climate: "Warm summers with temperatures often exceeding 30°C, mild winters averaging around 18°C."
     },
-    images: ["marrakech1.png", "marrakech2.png", "marrakech3.png"],
+    images: ["marrakech1.png", "marrakech2.png", "marrakech3.png", "marrakech4.png", "marrakech5.png", "marrakech6.png", "marrakech7.png", "marrakech8.png", "marrakech9.png", "marrakech10.png"],
     mapCoordinates: [31.6295, -7.9811]
   },
   {
@@ -124,7 +124,7 @@ const citiesData = [
       current: "Clear, 19°C",
       climate: "Continental climate with hot summers and cold, wet winters."
     },
-    images: ["fes1.png", "fes2.png", "fes3.png"],
+    images: ["fes1.png", "fes2.png", "fes3.png", "fes4.png", "fes5.png", "fes6.png", "fes7.png", "fes8.png"],
     mapCoordinates: [34.0331, -4.9998]
   },
   {
@@ -156,7 +156,7 @@ const citiesData = [
       current: "Windy, 18°C",
       climate: "Mediterranean climate with hot summers and mild, wet winters."
     },
-    images: ["tangier1.png", "tangier2.png", "tangier3.png"],
+    images: ["tangier1.png", "tangier2.png", "tangier3.png", "tangier4.png", "tangier5.png", "tangier6.png", "tangier7.png"],
     mapCoordinates: [35.7595, -5.8340]
   },
   {
@@ -188,7 +188,7 @@ const citiesData = [
       current: "Sunny, 26°C",
       climate: "Mild, subtropical climate with warm winters and hot summers."
     },
-    images: ["agadir1.png", "agadir2.png", "agadir3.png"],
+    images: ["agadir1.png", "agadir3.png", "agadir4.png", "agadir5.png", "agadir6.png"],
     mapCoordinates: [30.4278, -9.5981]
   },
   {
@@ -220,7 +220,7 @@ const citiesData = [
       current: "Windy, 20°C",
       climate: "Mild, Mediterranean climate with cool winters and warm summers."
     },
-    images: ["essaouira1.png", "essaouira2.png", "essaouira3.png"],
+    images: ["essaouira1.png", "essaouira2.png", "essaouira3.png", "essaouira4.png", "essaouira5.png", "essaouira6.png", "essaouira7.png", "essaouira8.png", "essaouira9.png", "essaouira10.png"],
     mapCoordinates: [31.5085, -9.7595]
   },
   {
@@ -252,7 +252,7 @@ const citiesData = [
       current: "Cloudy, 17°C",
       climate: "Continental climate with hot summers and cool, wet winters."
     },
-    images: ["meknes1.png", "meknes2.png", "meknes3.png"],
+    images: ["meknes1.png", "meknes2.png", "meknes3.png","meknes5.png"],
     mapCoordinates: [33.8959, -5.5540]
   },
   {
@@ -284,7 +284,7 @@ const citiesData = [
       current: "Sunny, 24°C",
       climate: "Desert climate with hot, dry summers and mild winters."
     },
-    images: ["ouarzazate1.png", "ouarzazate2.png", "ouarzazate3.png"],
+    images: ["ouarzazate1.png", "ouarzazate2.png", "ouarzazate3.png", "ouarzazate4.png", "ouarzazate5.png", "ouarzazate6.png"],
     mapCoordinates: [30.9189, -6.8930]
   },
   {
@@ -316,7 +316,7 @@ const citiesData = [
       current: "Clear, 16°C",
       climate: "Mediterranean climate with warm summers and mild, wet winters."
     },
-    images: ["chefchaouen1.png", "chefchaouen2.png", "chefchaouen3.png"],
+    images: ["chefchaouen1.png", "chefchaouen2.png", "chefchaouen3.png", "chefchaouen4.png", "chefchaouen5.png", "chefchaouen6.png", "chefchaouen7.png"],
     mapCoordinates: [35.1688, -5.2636]
   },
   {
@@ -348,7 +348,7 @@ const citiesData = [
       current: "Snowy, -2°C",
       climate: "Alpine climate with cold, snowy winters and mild summers."
     },
-    images: ["ifrane1.png", "ifrane2.png", "ifrane3.png"],
+    images: ["ifran1.png", "ifran2.png", "ifran3.png", "ifran4.png", "ifran5.png", "ifran6.png"],
     mapCoordinates: [33.5338, -5.1087]
   },
   {
@@ -380,7 +380,7 @@ const citiesData = [
       current: "Partly Cloudy, 18°C",
       climate: "Mediterranean climate with hot summers and mild, wet winters."
     },
-    images: ["tetouan1.png", "tetouan2.png", "tetouan3.png"],
+    images: ["tetouan1.png", "tetouan2.png", "tetouan3.png", "tetouan4.png", "tetouan5.png"],
     mapCoordinates: [35.5785, -5.3684]
   },
   {
@@ -412,7 +412,7 @@ const citiesData = [
       current: "Sunny, 22°C",
       climate: "Mediterranean climate with warm summers and mild winters."
     },
-    images: ["eljadida1.png", "eljadida2.png", "eljadida3.png"],
+    images: ["eljadida1.png", "eljadida3.png", "eljadida4.png", "eljadida5.png"],
     mapCoordinates: [33.2549, -8.5060]
   },
   {
@@ -444,7 +444,7 @@ const citiesData = [
       current: "Cloudy, 21°C",
       climate: "Mediterranean climate with warm summers and mild, wet winters."
     },
-    images: ["kenitra1.png", "kenitra2.png", "kenitra3.png"],
+    images: ["kenitra1.png", "kenitra2.png", "kenitra3.png", "kenitra4.png", "kenitra5.png"],
     mapCoordinates: [34.2643, -6.5890]
   },
   {
@@ -476,7 +476,7 @@ const citiesData = [
       current: "Sunny, 23°C",
       climate: "Continental climate with hot, dry summers and cold, wet winters."
     },
-    images: ["oujda1.png", "oujda2.png", "oujda3.png"],
+    images: ["oujda1.png", "oujda3.png", "oujda4.png"],
     mapCoordinates: [34.6821, -1.8993]
   }
 ];

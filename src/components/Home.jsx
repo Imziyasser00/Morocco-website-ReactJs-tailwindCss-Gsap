@@ -18,7 +18,7 @@ const Home = ({ tagLine, description, image }) => {
         duration: 1,
         ease: "power3.inOut",
         stagger: 0.2,
-        delay:2
+        delay:1
       }
     ).fromTo("#img",{
         yPercent:-100
