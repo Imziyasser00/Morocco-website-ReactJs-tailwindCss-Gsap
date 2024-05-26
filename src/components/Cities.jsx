@@ -69,7 +69,7 @@ const Cities = () => {
               }}
             >
               <img
-                src={`src/assets/${item.toLowerCase()}.jpg`}
+                src={`/${item.toLowerCase()}.jpg`}
                 alt={item}
                 className="h-full w-full object-cover"
               />
