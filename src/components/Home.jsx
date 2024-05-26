@@ -28,8 +28,8 @@ const Home = ({ tagLine, description, image }) => {
     })
   }, []);
   return (
-    <div className="w-full h-full flex flex-col-reverse md:flex-row">
-      <div className="w-full md:w-1/2 h-full flex justify-center mt-2 md:mt-24 overflow-hidden ">
+    <div className="w-full h-[80%] mt-24 lg:mt-0 flex flex-col-reverse lg:flex-row">
+      <div className="w-full lg:w-1/2 h-full flex justify-center mt-2 lg:mt-24 overflow-hidden ">
         <img
           src={`/${image[0]}`}
           id="img"
@@ -37,11 +37,11 @@ const Home = ({ tagLine, description, image }) => {
           className="w-4/5 h-4/6 object-cover rounded-lg"
         />
       </div>
-      <div className="ww-full md:w-1/2 h-full flex justify-center items-center flex-col">
-        <h2 className="text-6xl md:text-9xl font-medium  md:-mt-32 tagLine text-center">
+      <div className="w-full lg:w-1/2 h-full md:h-[70%] lg:h-full gap-10 flex justify-center items-center flex-col relative">
+        <h2 className="text-6xl lg:text-9xl font-medium  lg:-mt-32 tagLine text-center">
           {tagLine}
         </h2>
-        <h2 className="text-2xl w-2/3 text-center mt-12 tagLine">{description}</h2>
+        <h2 className="text-2xl w-2/3 text-center tagLine">{description}</h2>
       </div>
     </div>
   );

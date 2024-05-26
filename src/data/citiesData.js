@@ -7,7 +7,7 @@ const citiesData = [
     introduction: "Casablanca, founded in the 7th century, has evolved from a small Berber settlement to a bustling metropolis. The city experienced significant growth under French colonial rule, which left a lasting imprint on its architecture and infrastructure. Today, Casablanca is a symbol of Moroccan modernization and economic progress.",
     population: "3.7 million",
     area: "220 sq km",
-    languages: ["Arabic", "French"],
+    languages: ["Arabic"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Hassan II Mosque",
@@ -39,7 +39,7 @@ const citiesData = [
     introduction: "Rabat was established as a military fort by the Almohad dynasty in the 12th century. Over the centuries, it has grown into a significant political and cultural hub. The city's well-preserved medina and historic monuments reflect its storied past, while modern developments signify its status as a contemporary capital.",
     population: "1.6 million",
     area: "117 sq km",
-    languages: ["Arabic", "French"],
+    languages: ["Arabic"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Hassan Tower",
@@ -71,7 +71,7 @@ const citiesData = [
     introduction: "Founded in 1062 by the Almoravid dynasty, Marrakech quickly became a significant cultural and religious center. The city is renowned for its distinctive red sandstone buildings, giving it the nickname 'The Red City.' Over the centuries, Marrakech has remained a major trading hub and a focal point of Moroccan history and culture.",
     population: "1 million",
     area: "230 sq km",
-    languages: ["Arabic", "Berber", "French"],
+    languages: ["Arabic", "Berber"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Koutoubia Mosque",
@@ -103,7 +103,7 @@ const citiesData = [
     introduction: "Founded in the 9th century, Fes has been a seat of learning and culture for over a millennium. It is home to Al Quaraouiyine University, the world's oldest continuously operating university. The city's labyrinthine medina, a UNESCO World Heritage site, reflects its rich history and cultural significance.",
     population: "1.1 million",
     area: "320 sq km",
-    languages: ["Arabic", "French"],
+    languages: ["Arabic"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Al Quaraouiyine University",
@@ -135,7 +135,7 @@ const citiesData = [
     introduction: "With a history dating back to the 5th century BC, Tangier has been influenced by numerous civilizations, including the Phoenicians, Romans, and Arabs. In the 20th century, it became an international zone attracting artists and writers. Today, Tangier is a vibrant city that reflects a unique blend of cultures and traditions.",
     population: "947,952",
     area: "120 sq km",
-    languages: ["Arabic", "French"],
+    languages: ["Arabic"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Cape Spartel",
@@ -167,7 +167,7 @@ const citiesData = [
     introduction: "Agadir was rebuilt in the 1960s after a devastating earthquake, transforming it into a modern city with a focus on tourism. The city's wide sandy beaches and mild climate make it a year-round destination. Agadir also serves as a gateway to the scenic Souss-Massa region, known for its national parks and natural beauty.",
     population: "421,844",
     area: "70 sq km",
-    languages: ["Arabic", "French"],
+    languages: ["Arabic"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Agadir Beach",
@@ -199,7 +199,7 @@ const citiesData = [
     introduction: "Founded in the 18th century by Sultan Mohammed ben Abdallah, Essaouira was designed by European architects, giving it a unique blend of Moroccan and European styles. The city's medina is a UNESCO World Heritage site, and its picturesque harbor and fortifications are reminiscent of its strategic maritime history.",
     population: "77,966",
     area: "90 sq km",
-    languages: ["Arabic", "French"],
+    languages: ["Arabic"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Essaouira Beach",
@@ -231,7 +231,7 @@ const citiesData = [
     introduction: "Meknes was founded in the 11th century by the Almoravids as a military settlement. It rose to prominence in the 17th century under Sultan Moulay Ismail, who transformed it into a grand capital. The city's impressive fortifications, palaces, and gardens reflect its historical significance and imperial grandeur.",
     population: "632,079",
     area: "105 sq km",
-    languages: ["Arabic", "French"],
+    languages: ["Arabic"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Bab Mansour",
@@ -327,7 +327,7 @@ const citiesData = [
     introduction: "Founded in the 1920s during the French colonial period, Ifrane was designed to resemble a European alpine village. Its high altitude and cool climate make it a popular destination for winter sports and summer retreats. The presence of Al Akhawayn University adds to its vibrant and diverse community.",
     population: "30,000",
     area: "60 sq km",
-    languages: ["Arabic", "French"],
+    languages: ["Arabic"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Michlifen Ski Resort",
@@ -359,7 +359,7 @@ const citiesData = [
     introduction: "Tétouan was rebuilt in the 15th century by Andalusian refugees fleeing the Reconquista, which deeply influenced its architecture and culture. The city's medina is a UNESCO World Heritage site, recognized for its unique fusion of Arab and Andalusian traditions. Tétouan also serves as a cultural and artistic center in northern Morocco.",
     population: "380,787",
     area: "75 sq km",
-    languages: ["Arabic", "Spanish", "French"],
+    languages: ["Arabic", "Spanish"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Medina of Tétouan",
@@ -391,7 +391,7 @@ const citiesData = [
     introduction: "Founded by the Portuguese in the early 16th century, El Jadida was initially known as Mazagan. The city's fortifications and cisterns are remnants of its colonial past. Today, El Jadida is a thriving coastal city that blends historical architecture with modern amenities, offering a rich cultural and recreational experience.",
     population: "194,934",
     area: "30 sq km",
-    languages: ["Arabic", "French"],
+    languages: ["Arabic"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Portuguese Cistern",
@@ -423,7 +423,7 @@ const citiesData = [
     introduction: "Kenitra was established as a military fort during the French protectorate and has since evolved into a vital industrial and agricultural center. The city's natural attractions, such as the Sidi Boughaba Nature Reserve, offer a contrast to its urban and industrial areas, providing residents and visitors with a balanced environment.",
     population: "431,282",
     area: "76 sq km",
-    languages: ["Arabic", "French"],
+    languages: ["Arabic"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Sidi Boughaba Nature Reserve",
@@ -455,7 +455,7 @@ const citiesData = [
     introduction: "Founded over a thousand years ago, Oujda has been a significant cultural and commercial center in eastern Morocco. The city's strategic location near the Algerian border has made it a crossroads of cultures. Oujda is renowned for its educational institutions and dynamic arts scene, making it a city of knowledge and culture.",
     population: "494,252",
     area: "80 sq km",
-    languages: ["Arabic", "French"],
+    languages: ["Arabic"],
     timezone: "GMT+1",
     pointsOfInterest: [
       "Souk El Ma",

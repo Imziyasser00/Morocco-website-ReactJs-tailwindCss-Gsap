@@ -11,6 +11,7 @@ import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 const Slider = ({ images }) => {
 
   useEffect(()=>{
+    const imgs = new gsap.timeline();
     const tl = new gsap.timeline();
     tl.fromTo('#slider',{
       y: -500,
@@ -20,13 +21,24 @@ const Slider = ({ images }) => {
       opacity: 1,
       duration: 1,
     })
+    imgs.fromTo(".img",{
+      x:200,
+      opacity:0,
+      
+    },{
+      x:0,
+      opacity:1,
+      duration:1.2,
+      ease: "power3.inOut",
+      stagger: 0.5,
+    })
     console.log(images)
   },[images])
 
   return (
-    <div className="w-full h-full ">
-      <div className="flex w-full h-full justify-center items-center">
-        <div className="w-4/5 h-full justify-center items-center" id="slider">
+    <div className="w-full h-full overflow-y-scroll lg:overflow-hidden lg:mt-0">
+      <div className="flex w-full h-full justify-center items-center lg:block hidden">
+        <div className="w-full h-full justify-center items-center" id="slider">
           <Swiper
             effect={"coverflow"}
             grabCursor={true}
@@ -41,7 +53,7 @@ const Slider = ({ images }) => {
             }}
             modules={[EffectCoverflow, Pagination, Navigation]}
             pagination={{ el: ".swiper-pagination", clickable: true }}
-            className=" h-4/6 relative mt-12"
+            className=" h-4/5 w-full relative mt-12 mx-auto"
           >
           {images && images.map((item)=>(
             <SwiperSlide>
@@ -61,6 +73,15 @@ const Slider = ({ images }) => {
 
         </div>
       </div>
+      <div className="flex flex-col lg:hidden gap-5 justify-center items-center z-50 overflow-y-scroll mt-24 md:mb-56">
+      {images && images.map((item,index)=>(
+        <img   src={`/${item}`}
+        alt={index}
+        className="w-[90%] img"
+        />
+  ))}
+      </div>
+
     </div>
   );
 };

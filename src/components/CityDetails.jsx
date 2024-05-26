@@ -4,9 +4,9 @@ import gsap from "gsap";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import CitiesData from "../data/citiesData";
-import WeatherWidjet from "./WeatherWidjet";
 import Brief from "./Brief";
 import Slider from "./Slider";
+import Map from "./Map";
 
 const CityDetails = () => {
   const { cityName } = useParams();
@@ -31,6 +31,14 @@ const CityDetails = () => {
             brief={cityData.brief}
             introduction={cityData.introduction}
             image={cityData.images[1]}
+            cityName={cityName}
+            population={cityData.population}
+            area={cityData.area}
+            languages={cityData.languages}
+            timezone={cityData.timezone}
+            pointsOfInterest={cityData.pointsOfInterest}
+            events={cityData.events}
+            travelInfo={cityData.travelInfo}
           />
         );
         case "Gallery":
@@ -38,6 +46,10 @@ const CityDetails = () => {
           <Slider
             images={cityData.images}
           />
+        );
+        case "Map":
+        return (
+          <Map cityName={cityName}/>
         );
       default:
         return (
@@ -86,12 +98,12 @@ const CityDetails = () => {
   }, [cityName, loading]);
 
   return (
-    <div className='w-[100vw] h-[100vh] overflow-hidden  bg-[url("/bg.png")]'>
+    <div className='w-[100vw] h-[100vh] overflow-hidden  bg-[url("/bg.png")] '>
 
       <div className="w-full h-full flex z-10 relative">
         <div
           id="cityName"
-          className="text-5xl w-[15vw] sm:w-[10vw] h-full border-r-8 text-white bg-Mred overflow-y-hidden  border-Mred sm:text-7xl flex flex-col items-center justify-center tracking-widest overflow-y-auto"
+          className="text-5xl w-[15vw] sm:w-[10vw] h-full text-white bg-Mred overflow-y-hidden  border-[#ffffffd0] border-r-4 sm:text-7xl flex flex-col items-center justify-center tracking-widest overflow-y-auto"
         >
           {letters.map(({ letter, id }) => (
             <span key={id} id={id} className="inline-block my-auto">
@@ -103,7 +115,6 @@ const CityDetails = () => {
           <NavBar setCurrentSection={setCurrentSection} />
           
           {cityData ? <Section /> : <p>Loading...</p>}
-          {!cityData && <WeatherWidjet city={cityName.toLowerCase()}/>}
         </div>
       </div>
       

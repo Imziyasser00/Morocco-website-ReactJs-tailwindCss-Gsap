@@ -1,8 +1,23 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
+import WeatherWidget from "./WeatherWidjet";
+import Accordion from "./Accordion";
 
-const Brief = ({ brief, introduction, image }) => {
+const Brief = ({
+  brief,
+  introduction,
+  image,
+  cityName,
+  population,
+  area,
+  languages,
+  timezone,
+  pointsOfInterest,
+  events,
+  travelInfo,
+}) => {
   useEffect(() => {
+    console.log(languages);
     const tl = gsap.timeline();
     console.log(image);
     tl.fromTo(
@@ -43,33 +58,48 @@ const Brief = ({ brief, introduction, image }) => {
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col ">
-      <div
-        className="w-4/5 mx-auto text-center text-xl md:text-3xl lg:mt-24 mt-0"
-        id="introduction"
-      >
-        {introduction}
-      </div>
-      <div className="w-full h-full flex flex-col lg:flex-row -mt-32 justify-center items-center">
-        <div className="w-5/6 lg:w-1/2 h-full flex justify-center py-8 items-center">
-          <div
-            className="w-full lg:w-5/6 h-4/6 justify-center items-center flex text-center text-xl md:text-3xl"
-            id="brief"
-          >
-            {brief}
-          </div>
+    <div className="w-full h-full mb-24 mt-16 lg:h-[90vh] flex flex-col lg:flex-row lg:justify-center overflow-y-scroll lg:overflow-y-hidden overflow-x-hidden">
+      <div className="w-full lg:w-1/2 h-full lg:h-[90%] flex flex-col items-center gap-8 mt-10 ">
+        <div className="w-[95%] bg-white rounded-xl border border-4 border-Mred">
+          <div className="text-xl md:text-2xl   xl:text-3xl p-5">{brief}</div>
+          <div className="text-xl  md:text-2xl  xl:text-3xl  p-5">{introduction}</div>
         </div>
-        <div className="w-full lg:w-1/2  flex h-full justify-center items-center ">
-          <div className="w-full md:w-3/4 h-full flex justify-center mt-2 md:pt-52 overflow-hidden ">
-            <img
-              src={`/${image}`}
-              id="image"
-              alt="photo"
-              className="w-full ml-8  mt-0 object-cover rounded-lg"
-            />
-          </div>
+        <div className="w-[95%]  bg-white rounded-xl border border-4 border-Mred ">
+          <WeatherWidget city={cityName.toLowerCase()} />
         </div>
       </div>
+      <div className="w-full h-full lg:w-1/2 flex flex-col items-center my-10 gap-8 mb-24p">
+        <div className="w-[95%] bg-white rounded-xl text-2xl border border-4 border-Mred">
+          <div className="w-full h-1/2 flex">
+            <div className="w-1/2 h-full flex items-center justify-between p-6">
+              <div>Population : </div>
+              <div className="text-Mred">{population}</div>
+            </div>
+            <div className="w-1/2 h-full flex items-center justify-between p-6">
+              <div>Area : </div>
+              <div className="text-Mred">{area}</div>
+            </div>
+          </div>
+          <div className="w-full h-1/2 flex">
+            <div className="w-1/2 h-full flex items-center justify-between p-6">
+              <div>Languages: </div>
+              <div className="flex justify-around items-center gap-4 text-Mred">
+                {languages.map((item, index) => (
+                  <div key={index}>{item}</div>
+                ))}
+              </div>
+            </div>
+            <div className="w-1/2 h-full flex items-center justify-between p-6">
+              <div>Timezone : </div>
+              <div className="text-Mred">{timezone}</div>
+            </div>
+          </div>
+        </div>
+        <div className="w-[95%] ">
+                <Accordion pointsOfInterest={pointsOfInterest} events={events} travelInfo={travelInfo} cityName={cityName}/>
+        </div>
+      </div>
+      
     </div>
   );
 };
