@@ -42,7 +42,7 @@ const NavBar = ({ setCurrentSection }) => {
       ease: "power3.inOut",
     })
   }, []);
-
+ 
   const handleSectionChange = (section) => {
     setNavDisplayed(!navDisplayed);
     setActiveSection(section);
