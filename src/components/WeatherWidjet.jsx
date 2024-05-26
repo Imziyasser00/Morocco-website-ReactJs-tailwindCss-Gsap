@@ -6,18 +6,7 @@ const WeatherWidget = ({ city }) => {
   const [data, setData] = useState({});
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9ac1ac524a0fc90ce8c522af53f48437&units=metric`;
   useEffect(() => {
-    const tl = gsap.timeline();
-    tl.fromTo(
-      "#weather",
-      {
-        x: 400,
-      },
-      {
-        x: 0,
-        duration: 1,
-        delay: 3,
-      }
-    );
+    
     console.log(city);
     axios.get(url).then((response) => {
       setData(response.data);

@@ -34,6 +34,13 @@ const NavBar = ({ setCurrentSection }) => {
         delay: 1,
       }
     );
+    tl.fromTo("#arrow",{
+        y: - 200,
+    },{
+      y :0,
+      duration: 0.7,
+      ease: "power3.inOut",
+    })
   }, []);
 
   const handleSectionChange = (section) => {
@@ -49,7 +56,7 @@ const NavBar = ({ setCurrentSection }) => {
 
   return (
     <div>
-      <div className="nav-bar h-full md : h-[10vh] w-full hidden md:block relative">
+      <div className="nav-bar h-full md : h-[10vh] w-full hidden md:block relative overflow-x-hidden">
 
         <ul className="w-full justify-center  md:flex items-center text-3xl text-white gap-9 mt-10">
           <li
@@ -148,7 +155,7 @@ const NavBar = ({ setCurrentSection }) => {
         <RiCloseLargeFill className="absolute"/>}
         
       </div>
-      <div className="w-16 h-16 rounded-lg  text-Mred flex justify-center items-center text-4xl z-50 bg-white cursor-pointer absolute left-4 top-4" onClick={prevPage}>
+      <div className="w-16 h-16 rounded-lg  text-Mred flex justify-center items-center text-4xl z-50 bg-white cursor-pointer absolute left-4 top-4" onClick={prevPage} id="arrow">
         <IoMdArrowDropleftCircle className=""/>
         
       </div>

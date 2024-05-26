@@ -21,7 +21,7 @@ const Brief = ({
     const tl = gsap.timeline();
     console.log(image);
     tl.fromTo(
-      "#introduction",
+      "#intro",
       {
         y: -100,
         opacity: 0,
@@ -34,9 +34,9 @@ const Brief = ({
       }
     );
     tl.fromTo(
-      "#brief",
+      "#weather",
       {
-        y: -100,
+        y: -30,
         opacity: 0,
       },
       {
@@ -46,30 +46,40 @@ const Brief = ({
       }
     );
     tl.fromTo(
-      "#image",
+      "#infos",
       {
-        yPercent: -100,
+        y: -30,
+        opacity: 0,
       },
       {
-        yPercent: 0,
-        duration: 2,
+        y: 0,
+        opacity: 1,
+        duration: 1,
       }
     );
+    tl.fromTo("#accordion",{
+      y: -30,
+      opacity: 0,
+    },{
+      y : 0,
+      opacity:1,
+      duration: 1,
+    })
   }, []);
 
   return (
     <div className="w-full h-full mb-24 mt-16 lg:h-[90vh] flex flex-col lg:flex-row lg:justify-center overflow-y-scroll lg:overflow-y-hidden overflow-x-hidden">
       <div className="w-full lg:w-1/2 h-full lg:h-[90%] flex flex-col items-center gap-8 mt-10 ">
-        <div className="w-[95%] bg-white rounded-xl border border-4 border-Mred">
+        <div className="w-[95%] bg-white rounded-xl border border-4 border-Mred" id="intro">
           <div className="text-xl md:text-2xl   xl:text-3xl p-5">{brief}</div>
           <div className="text-xl  md:text-2xl  xl:text-3xl  p-5">{introduction}</div>
         </div>
-        <div className="w-[95%]  bg-white rounded-xl border border-4 border-Mred ">
+        <div className="w-[95%]  bg-white rounded-xl border border-4 border-Mred" id="weather">
           <WeatherWidget city={cityName.toLowerCase()} />
         </div>
       </div>
       <div className="w-full h-full lg:w-1/2 flex flex-col items-center my-10 gap-8 mb-24p">
-        <div className="w-[95%] bg-white rounded-xl text-2xl border border-4 border-Mred">
+        <div className="w-[95%] bg-white rounded-xl text-2xl border border-4 border-Mred" id="infos">
           <div className="w-full h-1/2 flex">
             <div className="w-1/2 h-full flex items-center justify-between p-6">
               <div>Population : </div>
@@ -95,7 +105,7 @@ const Brief = ({
             </div>
           </div>
         </div>
-        <div className="w-[95%] ">
+        <div className="w-[95%] " id="accordion">
                 <Accordion pointsOfInterest={pointsOfInterest} events={events} travelInfo={travelInfo} cityName={cityName}/>
         </div>
       </div>
