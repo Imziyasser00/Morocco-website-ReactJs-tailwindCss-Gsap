@@ -335,7 +335,7 @@ const Intro = () => {
                         cuisine of Morocco.
                       </p>
                       <button
-                        className="bg-Mred hover:bg-red-800 transition-all ease-in-out duration-600 tracking-widest text-white font-medium py-3 px-6 rounded-lg text-lg shadow-lg"
+                        className="bg-Mred hover:bg-red-800 transition-all ease-in-out duration-600 tracking-widest text-white font-medium py-3 px-6 rounded-lg text-lg shadow-lg z-40"
                         id="heroPara"
                         onClick={nextPage}
                       >

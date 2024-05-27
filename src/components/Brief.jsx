@@ -68,7 +68,7 @@ const Brief = ({
   }, []);
 
   return (
-    <div className="w-full h-full mb-24 mt-16 lg:h-[90vh] flex flex-col lg:flex-row lg:justify-center overflow-y-scroll lg:overflow-y-hidden overflow-x-hidden">
+    <div className="w-full h-[95vh] md:h-[80vh] mt-16 lg:h-[90vh] flex flex-col lg:flex-row lg:justify-center overflow-y-scroll lg:overflow-y-hidden overflow-x-hidden mb-28">
       <div className="w-full lg:w-1/2 h-full lg:h-[90%] flex flex-col items-center gap-8 mt-10 ">
         <div className="w-[95%] bg-white rounded-xl border border-4 border-Mred" id="intro">
           <div className="text-xl md:text-2xl   xl:text-3xl p-5">{brief}</div>
