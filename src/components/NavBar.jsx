@@ -55,7 +55,7 @@ const NavBar = ({ setCurrentSection }) => {
   }
 
   return (
-    <div>
+    <div className="">
       <div className="nav-bar h-full md : h-[10vh] w-full hidden md:block relative overflow-x-hidden">
 
         <ul className="w-full justify-center  md:flex items-center text-3xl text-white gap-9 mt-10">
@@ -101,9 +101,10 @@ const NavBar = ({ setCurrentSection }) => {
         </ul>
       </div>
       
-      {navDisplayed && <div className=" w-full h-full z-30 md:hidden bg-Mred absolute top-0 left-0">  <ul className="w-full h-full grid grid-cols-1 grid-rows-4 flex-col items-center relative">
+      {navDisplayed && <div className=" w-full h-full z-30 md:hidden bg-Mred absolute top-0 left-0"> 
+       <ul className="w-full mt-10 h-full grid grid-cols-1 grid-rows-4 flex-col items-center relative">
       <li
-        className={`text-white w-full text-5xl flex w-full gap-12 items-center ${
+        className={`text-white w-full text-4xl flex w-full gap-12 items-center ${
           activeSection === "Home" ? "active" : "text-white"
         }`}
         onClick={() => handleSectionChange("Home")}
@@ -111,10 +112,10 @@ const NavBar = ({ setCurrentSection }) => {
         <div className="w-1/3 flex justify-center items-center">
           <FaHome />
         </div>
-        <div className="w-2/3  ">Home</div>
+        <div className="w-2/3   ml-10">Home</div>
       </li>
       <li
-        className={`text-white w-full text-5xl flex gap-12  items-center ${
+        className={`text-white w-full text-4xl flex gap-12  items-center ${
           activeSection === "Gallery" ? "active" : "text-white"
         }`}
         onClick={() => handleSectionChange("Gallery")}
@@ -122,10 +123,10 @@ const NavBar = ({ setCurrentSection }) => {
         <div className="w-1/3 flex justify-center items-center">
           <GrGallery />
         </div>
-        <div className="w-2/3 ml-0 ">Gallery</div>
+        <div className="w-2/3 ml-10">Gallery</div>
       </li>
       <li
-        className={`text-white w-full  text-5xl flex gap-12 items-center${
+        className={`text-white w-full  text-4xl flex gap-12 items-center${
           activeSection === "Brief" ? "active" : "text-white"
         }`}
         onClick={() => handleSectionChange("Brief")}
@@ -133,11 +134,11 @@ const NavBar = ({ setCurrentSection }) => {
         <div className="w-1/3 flex justify-center items-center">
           <FaCity />
         </div>
-        <div className="w-2/3">Brief</div>
+        <div className="w-2/3 ml-10">Brief</div>
       </li>
 
       <li
-        className={`text-white w-full text-5xl flex  gap-12 items-center ${
+        className={`text-white w-full text-4xl flex  gap-12 items-center ${
           activeSection === "Brief" ? "active" : "text-white"
         }`}
         onClick={() => handleSectionChange("Map")}
@@ -145,7 +146,7 @@ const NavBar = ({ setCurrentSection }) => {
         <div className="w-1/3 flex justify-center items-center">
           <FaMapMarkedAlt />
         </div>
-        <div className="w-2/3">Map</div>
+        <div className="w-2/3 ml-10">Map</div>
       </li>
     </ul> </div> 
       }

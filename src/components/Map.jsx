@@ -8,7 +8,7 @@ const Map = ({ cityName }) => {
     <div className="w-full h-[90%] flex justify-center items-center">
       {city ? (
         <div
-        className="border border-4 border-Mred h-[80%] w-[80%]"
+        className="border border-4 mt-32 lg:mt-0 border-Mred h-[80%] w-[80%]"
           dangerouslySetInnerHTML={{ __html: city.embedMap }}
         ></div>
       ) : (
